@@ -1,0 +1,17 @@
+
+<div class="container my-4">
+  <div class="row d-flex justify-content-between">
+    <h1>New restaurant</h1>
+    <button class="btn btn-secondary" style="max-height: 35px"><%= link_to 'Back to restaurant list', restaurants_path %></button>
+  </div>
+
+  <div class="row list-group">
+    <%= simple_form_for [ @restaurant] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :category, collection: %w(chinese italian japanese french belgian) %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.submit "Submit restaurant", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

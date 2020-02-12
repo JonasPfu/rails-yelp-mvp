@@ -1,0 +1,38 @@
+
+<div class="container my-4">
+  <div class="row d-flex justify-content-between">
+    <h1><%= @restaurant.name %></h1>
+    <button class="btn btn-secondary" style="max-height: 35px"><%= link_to 'Back to restaurant list', restaurants_path %></button>
+  </div>
+
+
+  <div class="list-group-item my-2">
+    <div class="row list-group">
+      <p><%= @restaurant.category %></p>
+    </div>
+
+    <div class="row list-group">
+      <p><%= @restaurant.address %></p>
+    </div>
+
+    <div class="row list-group">
+      <h3>Reviews from past guests:</h3>
+      <ul>
+        <% @restaurant.reviews.each do |review| %>
+          <li class="d-flex">
+            <div class="row">
+              <div class="column mx-3">
+                <p><%= review.content %></p>
+              </div>
+              <div class="column mx-3">
+                <p>rating:<%= "*" * review.rating %></p>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+    <button class="btn btn-primary" style="max-height: 35px"><%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %></button>
+</div>
